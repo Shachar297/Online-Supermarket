@@ -6,3 +6,6 @@ node_modules/
 *.csv
 *.xlsx
 database/
+.editorconfig
+karma.conf.js
+.browserslistrc
