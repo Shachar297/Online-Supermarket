@@ -1,3 +1,5 @@
 karma.conf.js
 .editorconfig
-.browserlistrc
+.browserslistrc
+dist/client/
+dist/

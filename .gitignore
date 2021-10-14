@@ -9,3 +9,8 @@ database/
 .editorconfig
 karma.conf.js
 .browserslistrc
+karma.conf.js
+.editorconfig
+.browserslistrc
+dist/client/
+dist/
