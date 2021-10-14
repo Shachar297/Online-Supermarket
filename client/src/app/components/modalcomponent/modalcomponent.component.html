@@ -1,0 +1,34 @@
+<div id="modal-content-wrapper" style="position: -webkit-sticky;" (touched)="closeModal()" >
+    <header id="modal-header" *ngIf="stateService.isFirstOrder">
+        <button class="closeModalXButton" (click)="this.closeModal()"> X </button>
+        <h1 id="modal-title"> {{stateService.username}} </h1>
+        <br>
+        <h4> שמנו לב שבביקורך האחרון באתר נשארה לך הזמנה פתוחה </h4>
+        <br>
+        <p> {{stateService.items[0].id}} : הזמנה מס </p>
+    </header>
+
+    <header id="modal-header" *ngIf="!stateService.isFirstOrder">
+        <button class="closeModalXButton" (click)="this.closeModal()"> X </button> <br>
+        <h1 id="modal-title"> {{stateService.username}} </h1> <br>
+        <h4> ! ברוכים הבאים לקניה הראשונה שלך  </h4> <br>
+    </header>
+    <div id="modal-body">
+        <div class="card-item">
+            <!-- <img src={{image}} alt={{name}}> -->
+            <div class="item">   <br> 
+            <br>
+              <!-- <p class="quantity"> {{stateService.items[0].quantity}} יחידות
+                  <br> סה'כ לתשלום למוצר זה : {{totalPrice * quantity}}   <img src="https://image.flaticon.com/icons/png/512/38/38261.png" alt="shekel" width="25px"> 
+              </p> -->
+              <span class="continueOrder"> <button (click)="closeModal()" *ngIf="stateService.isFirstOrder"> המשך בקניה </button> </span>
+              <span class="continueOrder"> <button (click)="closeModal()" *ngIf="!stateService.isFirstOrder"> התחל קניה </button> </span>
+        </div>
+        </div>
+    </div>
+    <footer id="modal-footer" *ngIf="stateService.isFirstOrder">
+        <span class="orderBtn"> <button (click)="addItemToCart()"> הזמן </button> </span>
+        <span class="dismissBtn"> <button (click)="emptyUserCart()"> בטל ורוקן את העגלה שלי  </button></span>
+        
+    </footer>
+</div>

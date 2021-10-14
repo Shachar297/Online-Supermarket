@@ -1,0 +1,14 @@
+.app-footer {
+    height: 50px;
+  }
+
+  th{
+      padding: 2%;
+      border-bottom: solid rgb(0,0,0,0.5) 1px;
+      width: 5vw;
+      cursor: pointer;
+  }
+
+  table *{
+      margin:auto;
+  }

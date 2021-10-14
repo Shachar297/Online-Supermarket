@@ -1,0 +1,12 @@
+<div class="admin">
+
+    <app-product-card *ngFor="let product of products"
+    [name]="product.name"
+    [price]="product.price"
+    [productId]="product.id"
+    [product]="product"
+    [image]="product.image"
+    (childEventRemoveItem)="removeItem($event)"
+    (childEventEditItem)="editItem($event)"
+    ></app-product-card>
+</div>

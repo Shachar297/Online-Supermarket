@@ -1,0 +1,38 @@
+<div class="productIdAdminComponent" *ngIf="this.userType == 'ADMIN'">
+
+    <div class="card-header"> <h2>{{product.name}}</h2> <br>
+                                <input type="text" [(ngModel)]="product.name"></div>
+
+    <div class="card-image"> <img src={{product.image}} alt=""> <br>
+                            <input type="text" [(ngModel)]="product.image"> </div>
+
+    <div class="card-body"> 
+    <h3> {{price}} 
+        <img src="https://image.flaticon.com/icons/png/512/38/38261.png" alt="shekel" width="20px"> </h3>    <br>
+            <input type="number" [(ngModel)]="product.price"> <br>
+            <button (click)="saveChangesOnCurrentProduct()"> שמור שינויים </button> <br>
+            <button (click)="onCancel()"> חזור לדף הראשי</button>
+    </div>
+</div>
+
+
+<div class="productIdCustomerComponent" *ngIf="this.userType == 'CUSTOMER'">
+    <div class="card-header"> <h2>{{product.name}}</h2> <br>
+        
+
+<div class="card-image"> <img src={{product.image}} alt=""> <br>
+   
+
+<div class="card-body"> 
+    <p *ngIf="this.quantity"> {{this.quantity}} יחידות </p>
+<h3> {{product.price * this.quantity}}
+<img src="https://image.flaticon.com/icons/png/512/38/38261.png" alt="shekel" width="20px"> סה'כ למוצר זה בשקלים</h3>    <br>
+
+<div class="card-footer">
+    <button (click)="addItemToCart()" [disabled]="this.quantity === 0"> הוסף מוצר לעגלה </button> 
+    <button (click)="purchaseItem()" [disabled]="this.quantity === 0"> בצע קניה </button>
+    <button (click)="onCancel()"> בטל </button>
+    <p *ngIf="this.quantity === 0" style="color: red; font-size: 20px;">  אנא חזור אחורה ובחר כמות רצויה לרכישת \ הוספת מוצר זה  </p>
+</div>
+</div>
+

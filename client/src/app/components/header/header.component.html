@@ -1,0 +1,7 @@
+<button (click)="stateService.onLogout()" *ngIf="stateService.isUserLoggedIn === 'true'" class="logoutBtn"> התנתק </button>
+
+<span class="contact" (mouseenter)="onMouseOver()" (mouseleave)="onMouseOut()">
+    <h4 *ngIf="!isMouseOver"> דרכי יצירת קשר </h4> 
+    <p *ngIf="isMouseOver"> Shovadia297@gmail.com : אימייל   </p> 
+    <p *ngIf="isMouseOver"> 0505809360 : מס' טלפון</p> <br>
+</span>

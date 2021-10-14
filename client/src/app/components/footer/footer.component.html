@@ -1,0 +1,11 @@
+<table>
+    <thead>  קטגוריות מוצרים </thead>
+    <tbody>
+        <tr >
+            <th (click)="sortCategories($event.target)"> All Products </th>
+            <th *ngFor="let category of stateService.categories" (click)="sortCategories($event.target)"> {{category.name}} <br> </th>
+        </tr>
+
+
+    </tbody>
+</table>

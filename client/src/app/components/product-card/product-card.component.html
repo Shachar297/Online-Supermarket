@@ -1,0 +1,42 @@
+<div class="product-card" (click)="onProductCardClick()">
+    <button class="adminEditProductBtn" (onMouseEnter)="onMouseEnter()" (click)="editItem()"
+        *ngIf="this.userType == 'ADMIN'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
+            viewBox="0 0 16 16">
+            <path
+                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+            <path fill-rule="evenodd"
+                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+        </svg> <br>
+        <!-- <P *ngIf="this.isHovered">ערוך מוצר זה</P> -->
+    </button>
+
+    <span class="card-header-image">
+        <img src={{image}} alt="product">
+    </span>
+
+    <span class="card-body">
+        <h1> {{name}} קנה עכשיו </h1>
+    </span>
+<div class="card-footer">
+     
+    <span class="card-footer-price">
+        <h3 class="price-tag"> <img src="https://image.flaticon.com/icons/png/512/38/38261.png" alt="shekel"
+                width="25px"> {{price}} רק במחיר של </h3>
+    </span>
+
+    <span class="card-footer-add-to-cart">
+        <span class="card-footer-plus-minus-peices" *ngIf="this.userType == 'CUSTOMER'" [ngStyle]="{'right' : quantity > 0 ? '25px' : '0' , 'position' : 'relative'}">
+            <button (click)="decreacePerices()" *ngIf="quantity != 0">-</button>
+            <span class="amount-of-peices"> {{quantity}} 'יח </span>
+            <button (click)="increacePeices()">+</button>
+        </span>
+        <button #addToCartItem (click)="openAndCloseModal()" *ngIf="this.userType === 'CUSTOMER'"
+            (mouseover)="onMouseEnter()" (mouseout)="onMouseLeave()"
+            [disabled]="isHovered == true && this.quantity == 0" class="addToCart">הוסף</button>
+        <p class="quantityError" style="position: relative; top: 15%;" *ngIf="quantity == -1"> כמות יחידות מינימלית להזמנה היא 1</p>
+        <p *ngIf="this.isHovered == true && this.quantity == 0" style="position: absolute; color: red; bottom: 0.1vw;"> אנא בחר כמות כדי לבצע פעולה זו </p>
+    </span>
+</div>
+
+</div>

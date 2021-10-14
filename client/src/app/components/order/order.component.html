@@ -1,0 +1,41 @@
+<div class="order" [ngStyle]="{'min-width' : stateService.isAsideCollapsed ? '99vw' : '80vw'}">
+
+    <h2> ! תודה על הסבלנות ,{{username}} שלום </h2>
+    <p  *ngIf="!isModalOpened"> ! אנחנו צריכים כמה פרטים אחרונים, וההזמנה שלך תצא לדרך  </p>
+
+    <div class="modalOrder" *ngIf="isModalOpened">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16" (click)="onHome()">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        <h1> הזמנתך התקבלה בהצלחה ! </h1> <br>
+        <a [href]="file" download="file.txt"> להורדת קבלה לחץ כאן ! </a> <br>
+        <button (click)="onHome()"> חזרה לבית הראשי </button>
+    </div>
+
+    <div class="inputs"  *ngIf="!isModalOpened">
+        <div class="items">
+            <span *ngFor="let item of stateService.items">
+                <p> {{item.productName}} </p>
+                <img src={{item.image}} alt={{item.name}} style="max-width: 100px;">
+                <p> {{item.quantity * item.productPrice}}  <img src="https://image.flaticon.com/icons/png/512/38/38261.png" alt="shekel" width="15px">   </p>
+                <p> יחידות נבחרו {{item.quantity}}  </p>
+               
+            </span> <br>
+            <p class="total-price" style="border: none;"> <b> סהכ לתשלום : {{this.calculateTotal()}} </b> </p>
+        </div>
+        <select (change)="changeCity($event.target)" (dblclick)="setUserCity($event.target)"> 
+            <option value="">  בחר עיר למשלוח</option>
+            <option *ngFor='let city of stateService.cities' value={{city.Name}}> {{city.Name}} </option>
+        </select>
+        <input type="text" [(ngModel)]="orderDetails.street" placeholder="כתובת רחוב למשלוח" (dblclick)="serUserStreet()">  <br>
+        <!-- <input type="date" [(ngModel)]="orderDetails.date"> <br> -->
+        <input type="number" [(ngModel)]="orderDetails.creditCard" placeholder="ארבע ספרות אחרונות של כרטיס אשראי"> <br>
+     <button (click)="onOrder()" > ! בצע קניה </button> <button (click)="onCancel()"> בטל </button>
+ 
+    </div>
+<br>
+
+
+</div>
+

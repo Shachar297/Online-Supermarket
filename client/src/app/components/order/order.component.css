@@ -1,0 +1,113 @@
+.order{
+  display: inline-block;
+  min-height: 100vh;
+  }
+  
+  
+
+.inputs > input {
+  width: 50vw;
+  height: 50px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 25px;
+}
+
+.items > *{
+  display: inline-block;
+  margin: 1%;
+  border: solid black 1px;
+}
+
+.total-price{
+  font-size: 22px;
+  text-decoration: underline gold;
+}
+
+.inputs > select , .inputs > option{
+  width: 75%;
+  height: 50px;
+  margin-bottom: 15px;
+  text-align: center;
+  text-indent: 45%;
+  font-size: 25px;
+}
+
+.inputs  button {
+  width: 21.5vw;
+  height: 50px;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: 2%;
+  background-color: rgb(218, 165, 32 , 0.6);
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.inputs > button:hover{
+    background-color: rgb(218, 165, 32);
+}
+
+.inputs {
+  border: solid gold 2px;
+  width: 75vw;
+  padding: 3%;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 2%;
+  position: relative;
+  top: 100px;
+}
+
+.order .modalOrder{
+  width: 100%;
+  height: 50vh;
+  background-color: rgb(218, 165, 32);
+  z-index: 1000;
+  position: relative;
+}
+
+.modalOrder button{
+  width: 20%;
+height: 10vh;
+position: relative;
+top: 200px;
+background-color: rgba(255, 255, 255,0);
+border: solid rgba(255, 255, 255, 0.7) 1px;
+font-size: 25px;
+margin: 1%;
+}
+
+.modalOrder button:hover{
+  transition: 0.5s;
+  color: white; 
+}
+
+.modalOrder a{
+  width: 15%;
+  font-size: 25px;
+  position: relative;
+top: 100px;
+border: solid rgba(255, 255, 255, 0.7) 1px;
+padding: 2.5%;
+color: black;
+}
+
+.modalOrder a:hover{
+  text-decoration: none;
+  transform: scale(1.3,1.3);
+  transition: 0.5s;
+  color: white;
+}
+
+.modalOrder svg{
+  position: relative;
+  left: 680px;
+  font-size: 50px;
+}
+
+.modalOrder svg:hover{
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+}

@@ -1,0 +1,191 @@
+.asideHeader {
+  border-bottom: solid black 1px;
+  padding-bottom: 25%;
+  background-color: gold;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.asideHeader .links {
+  float: left;
+  position: relative;
+  left: 2%;
+}
+
+.links > a:hover {
+  color: blue;
+}
+
+.aside .bi-cart-dash {
+  position: absolute;
+}
+
+.item-card-aside {
+  border-bottom: solid gold 3px;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  font-size: 18px;
+  align-content: center;
+  text-align: center;
+  direction: rtl;
+}
+
+.removeItemBtn {
+  float: right;
+  background-color: white;
+  width: 50px;
+  font-size: 30px;
+  height: 35px;
+  border: none;
+  border-left: solid black 1px;
+  border-bottom: solid black 1px;
+  border-radius: 15%;
+  position: relative;
+  bottom: 25px;
+}
+.removeItemBtn svg {
+  height: 20px;
+  width: 20px;
+}
+.removeItemBtn:hover {
+  background-color: rgb(255, 0, 0);
+  transition: 0.2s;
+}
+
+.removeItemBtn:hover svg {
+  width: 1.5vw;
+  height: 30px;
+  transition: 0.5s;
+}
+
+.removeItemBtn:not(:hover) svg {
+  transition: 1s;
+}
+
+.emptyUserCartBtn {
+  background-color: goldenrod;
+  width: 10vw;
+  height: 5vh;
+  font-size: 20px;
+  position: relative;
+  bottom: -20px;
+}
+
+.emptyUserCartBtn:hover {
+  transition: 0.5s;
+  background-color: red;
+}
+
+.orderBtn {
+  background-color: goldenrod;
+  width: 10vw;
+  height: 5vh;
+  font-size: 20px;
+}
+
+.logoutBtn {
+  background-color: rgb(245, 203, 97, 0);
+  border: solid rgba(0, 0, 0, 0.4) 1px;
+  position: relative;
+  bottom: -20px;
+  height: 3vh;
+  right: -65px;
+  width: 8vw;
+}
+
+.logoutBtn:hover {
+  transition: 0.5s;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: red;
+}
+
+.adminEdit {
+  position: relative;
+  top: 25px;
+  text-align: center;
+  align-content: center;
+}
+
+.adminEdit > * {
+  padding-bottom: 1%;
+  margin-bottom: 1%;
+  display: block;
+}
+
+.adminEdit svg {
+  margin-right: auto;
+  margin-left: auto;
+  color: gold;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.adminEdit input {
+  width: 100%;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  text-align: center;
+  padding: 1%;
+  font-size: 18px;
+  margin-bottom: 1%;
+  margin-top: 1%;
+}
+
+.adminEdit select {
+  margin-bottom: 1%;
+  margin-top: 1%;
+  padding: 2%;
+  text-indent: 25%;
+}
+
+.adminEdit button {
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+  height: 4vh;
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+  font-size: 18px;
+}
+
+.adminEdit button:hover {
+  transition: 0.5s;
+  background-color: rgba(255, 166, 0, 0.1);
+}
+
+.adminEdit img {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.bi-cart-dash {
+  position: relative;
+  left: 5.5%;
+  box-shadow: 2px 2px black;
+}
+
+.add-product input , .add-product select{
+  margin-bottom: 2vw;
+}
+
+.links a {
+  cursor: pointer;
+}
+@media only screen and (max-width : 600px){
+  .bi-cart-dash{
+    width: 5vw;
+  }
+  .logoutBtn{
+    margin-left: -8vw;
+    width: 10vw;
+  }
+  .aside *, .adminEdit *{
+    font-size: 15px;
+  }
+  .aside-body  button{
+    width: 100%;
+    font-size: 12px;
+    height: 7vh;
+  }
+}

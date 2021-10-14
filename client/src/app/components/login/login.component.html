@@ -1,0 +1,24 @@
+<div class="login">
+    <div class="formHeader">
+        <h2 class="h2Header">! אנא התחבר כדי להתחיל את הקניה החכמה שלך </h2>
+    </div>
+    <form #loginForm="ngForm" [formGroup]="formLoginGroup" class="loginForm" (submit)="login()">
+        <input type="text" name="username" placeholder="שם משתמש או כתובת מייל" [formControl]="usernameFormControl"
+        [ngStyle]="{'border' : usernameFormControl.errors?.required && usernameFormControl.touched ? ' solid red 2px' : 'solid rgb(0,0,0,0.2) 1px'}">
+        <br>
+        <span *ngIf="usernameFormControl.errors?.required && usernameFormControl.touched">שדה זה הוא שדה חובה</span><br>
+
+        <input type="password" name="password" placeholder="ססמא" [formControl]="passwordFormControl"
+        [ngStyle]="{'border' : passwordFormControl.errors?.required && passwordFormControl.touched ? ' solid red 2px' : 'solid rgb(0,0,0,0.2) 1px'}"> <br>
+        <span *ngIf="passwordFormControl.errors?.required && passwordFormControl.touched">שדה זה הוא שדה חובה</span><br>
+
+        <button [disabled]="loginForm.form.invalid"> התחבר </button>
+    </form>
+
+    <div class="goRegister" (click)="goRegister()"> <a (click)="goRegister()" class="h4goRegister"> עדיין לא רשום ? לחץ כאן </a> </div>
+</div>
+
+
+
+<!-- [(ngModel)]="userLoginDetails.username" -->
+<!--  [(ngModel)]="userLoginDetails.password" -->

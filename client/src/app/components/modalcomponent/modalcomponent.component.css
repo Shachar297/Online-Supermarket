@@ -1,0 +1,53 @@
+#modal-content-wrapper {
+width: 75vw;
+z-index: 200;
+position: absolute;
+background-color: white;
+border: solid rgb(0, 0, 0);
+top: 5vw;
+height: 50vh;
+box-shadow: 8px 8px rgb(194, 166, 6,0.4);
+}
+
+#modal-content-wrapper button {
+  background-color: rgb(247, 117, 117);
+}
+
+#modal-title {
+  font-size: 22px;
+  margin: 25px;
+}
+#modal-body button {
+  width: 27.5vw;
+  height: 6vh;
+  font-size: 35px;
+}
+
+#modal-footer {
+  margin-right: auto;
+  margin-left: auto;
+  height: 100%;
+  width: 100%;
+}
+
+#modal-footer button {
+  font-size: 30px;
+  margin: 25px;
+  height: 50px;
+  width: 25%;
+}
+
+#modal-content-wrapper button:hover{
+  background-color: red;
+}
+ 
+#modal-content-wrapper .closeModalXButton {
+  position: absolute;
+  left: 88%;
+  font-size: 35px;
+  height: 50px;
+  width: 5vw;
+  border: none;
+  background-color: white;
+  color: rgb(247, 117, 117);
+}

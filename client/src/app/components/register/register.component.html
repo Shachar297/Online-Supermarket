@@ -1,0 +1,49 @@
+<div class="register-component" [ngStyle]="{'width' : stateService.isAsideCollapsed ? '95vw' : '80vw'}">
+
+<form class="register-form" #registerForm="ngForm" [formGroup]="registerFormGroup" (submit)="register()">
+    <div class="register-Form-Header" *ngIf="!isNextPageButton"><h2 class="h2Header"> Please Register to start shopping ! (1/2) </h2></div>
+    <div class="register-Form-Header"*ngIf="isNextPageButton"><h2 class="h2Header"> Please Register to start shopping ! (2/2) </h2>
+        <button (click)="onBack()"> חזרה  </button>
+    </div>
+   
+    <input type="text" name="username" [formControl]="usernameFormControl" placeholder="שם משתמש" *ngIf="!isNextPageButton"
+    [ngStyle]="{'border' : usernameFormControl.errors?.required && usernameFormControl.touched ? ' solid red 2px' : 'solid rgb(0,0,0,0.2) 1px'}"> <br>
+
+    <span *ngIf="usernameFormControl.errors?.required && usernameFormControl.touched">שדה זה הוא שדה חובה וחייב להכיל בין 2 ל22 אותיות או תווים</span><br>
+   
+    <input type="password" name="password" [formControl]="passwordFormControl" placeholder="ססמא" *ngIf="!isNextPageButton"
+    [ngStyle]="{'border' : passwordFormControl.errors?.required && passwordFormControl.touched ? ' solid red 2px' : 'solid rgb(0,0,0,0.2) 1px'}"> <br>
+   
+    <span *ngIf="passwordFormControl.errors?.required && passwordFormControl.touched">שדה זה הוא שדה חובה , וחייב להכיל בין 5 ל18 תווים</span><br>
+
+    <input type="password" name="validatePassword" [formControl]="validatePasswordFormControl" placeholder="הבטח ססמא" *ngIf="!isNextPageButton"
+    [ngStyle]="{'border' : validatePasswordFormControl.errors?.required && validatePasswordFormControl.touched ? ' solid red 2px' : 'solid rgb(0,0,0,0.2) 1px'}"> <br>
+   
+    <span *ngIf="validatePasswordFormControl.value !=  passwordFormControl.value && validatePasswordFormControl.touched"> שדה זה הוא שדה חובה והססמאות חייבות להיות זהות</span><br>
+    
+    <input type="number" name="identityNumber" [formControl]="identityNumberFormControl" placeholder="Identity Number" *ngIf="!isNextPageButton"
+    [ngStyle]="{'border' : identityNumberFormControl.errors?.required && identityNumberFormControl.touched ? ' solid red 2px' : 'solid rgb(0,0,0,0.2) 1px'}"> <br>
+  
+    <span *ngIf="identityNumberFormControl.errors?.required && identityNumberFormControl.touched">שדה זה הוא שדה חובה , וחייב להיות באורך של 7 מספרים</span><br>
+
+    <select (change)='chooseCity($event.target)' name="selectCity" [formControl]="cityFormControl" *ngIf="isNextPageButton">
+        <option value="" name="city"> בחר עיר </option>
+        <option  *ngFor="let city of stateService.cities" name="city" value={{city.Name}}> {{city.Name}} </option>
+   
+    </select> <br>
+   
+    <input type="text" name="street" [formControl]="streetFormControl" placeholder="רחוב" *ngIf="isNextPageButton"
+    [ngStyle]="{'border' : streetFormControl.errors?.required && streetFormControl.touched ? ' solid red 2px' : 'solid rgb(0,0,0,0.2) 1px'}"> <br>
+   
+    <span *ngIf="streetFormControl.errors?.required && streetFormControl.touched">שדה זה הוא שדה חובה</span><br>
+
+
+   
+    <button *ngIf="isNextPageButton" [disabled]="registerForm.form.invalid" class="registerBtn">! הרשם עכשיו </button>
+   
+    <button (click)="onNextPage()" *ngIf="!isNextPageButton && usernameFormControl.value.length != 0 && passwordFormControl.value.length != 0 && identityNumberFormControl.value  != 0"
+    > מעבר לדף הבא  </button>
+
+</form>
+<div class="goLogin"> <a href="login" class="h4-go-login"> כבר רשום ? לחץ כאן </a>  </div>
+</div>

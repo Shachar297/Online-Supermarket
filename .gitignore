@@ -1,0 +1,8 @@
+public/
+.history/
+node_modules/
+*.png
+*.json
+*.csv
+*.xlsx
+database/

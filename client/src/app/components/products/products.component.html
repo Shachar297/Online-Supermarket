@@ -1,0 +1,26 @@
+<div class="products" >
+    <app-modalcomponent *ngIf="stateService.isModalOpened == 'true'">
+</app-modalcomponent>
+    <span class="search-products">
+        <select (change)="selectCategory($event.target)" class="selectCategories">
+            <option value="all Products"> כל המוצרים </option>
+            <option value="{{category.name}}" *ngFor="let category of stateService.categories">{{category.name}}</option>
+        </select>
+
+        <input type="text" [(ngModel)]="searchInputValue" placeholder="חפש מוצר לפי שם" (change)="searchProductByName()">
+        <button (click)="searchProductByName()" *ngIf="stateService.products.length != 1"> חפש </button>
+        <button (click)="getAllProducts()" *ngIf="stateService.products.length == 1"> לכל המוצרים </button>
+    </span>
+    <app-product-card *ngFor="let product of stateService.products"
+    [name]="product.name"
+    [price]="product.price"
+    [productId]="product.id"
+    [product]="product"
+    [image]="product.image"
+    (childEvent)="addToCart($event)"
+    ></app-product-card>
+
+
+</div>
+
+
